@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    form {
+      border: 2px solid #f1f1f1;
+      padding: 5%;
+    }
+
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+
+
+
+    img.avatar {
+      width: 20%;
+      border-radius: 50%;
+      margin-left: 40%;
+      padding-bottom: 5%;
+    }
+
+    .container {
+      padding: 10px;
+
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+
+    span {
+      color: red;
+    }
+  </style>
+</head>
+<script>
+  $(document).ready(function () {
+    //alert("hai");
+    $("button").click(function () {
+
+      uname = $("#uname").val();
+      //alert(fname);
+      phno = $("#Mobileno").val();
+      //alert(phno);
+      district = $("#district").val();
+      pwd1 = $("#psw1").val();
+      //alert(pwd1);
+      pwd2 = $("#psw2").val();
+      //alert(pwd2);
+      //let expression=/^[\w\-\.\+]+\@gmail\.com$/;
+      let expression2 = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+      let validate = true;
+      if (uname.length < 8 || uname.length == 0) {
+        $("#inuname").html("name must be  8 characters length");
+        $("#uname").css({ "border-color": "red" });
+        validate = false;
+      }
+      else {
+        $("#inuname").html("");
+        $("#uname").css({ "border-color": "" });
+      }
+      if (phno.length > 10 || phno.length == 0) {
+        $("#inmobile").html("enter correct ph.no");
+        $("#Mobileno").css({ "border-color": "red" });
+        validate = false;
+      }
+      else {
+        $("#inmobile").html("");
+        $("#Mobileno").css({ "border-color": "" });
+      }
+      if (district.length == 0) {
+        $("#indistrict").html("enter district name");
+        $("#district").css({ "border-color": "red" });
+        validate = false;
+      }
+      else {
+        $("#indistrict").html("");
+        $("#district").css({ "border-color": "" });
+      }
+
+
+      if (!expression2.test(pwd1)) {
+        $("#inpass1").html("password contain atleast one capital,small,number");
+        $("#psw1").css({ "border-color": "red" });
+        validate = false;
+      }
+      else {
+        $("#inpass1").html("");
+        $("#psw1").css({ "border-color": "" });
+
+      }
+
+      if (pwd1 != pwd2) {
+        $("#inpass2").html("password not matched");
+        $("#psw2").css({ "border-color": "red" });
+        validate = false;
+      }
+
+      else {
+        $("#inpass2").html("");
+        $("#psw2").css({ "border-color": "" });
+
+      }
+
+      //alert(validate);
+
+      if (validate) {
+        alert(validate);
+        $("#regform").submit();
+      }
+
+    });
+  });
+
+
+
+</script>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <form action="http://192.168.43.239/apgov/registration.php" method="post" id="regform" name="register">
+
+          <h3 class="text-center">Registration</h3>
+          <img src="img/register.png" alt="Avatar" class="avatar">
+          <br>
+
+          <label>
+            <b>Username</b>
+          </label>
+          <span id="inuname"></span>
+          <input type="text" placeholder="Enter Username" id="uname" name="uname">
+
+          <label>
+            <b>Mobile No</b>
+          </label>
+          <span id="inmobile"></span>
+          <input type="text" placeholder="Enter Mobile no" id="Mobileno" name="phno" maxlength="10">
+
+          <label>
+            <b>District</b>
+          </label>
+          <span id="indistrict"></span>
+          <input type="text" placeholder="Enter District" id="district" name="district">
+
+          <label>
+            <b>Password</b>
+          </label>
+          <span id="inpass1"></span>
+          <input type="password" placeholder="Enter Password" id="psw1" name="psw1">
+
+          <label>
+            <b>Confirm Password</b>
+          </label>
+          <span id="inpass2"></span>
+          <input type="password" placeholder="Confirm Password" id="psw2" name="psw2">
+          <button type="button">Register</button>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <!--
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+           <form action="registration.php" method="post" id="regform"  name="register">
+  <div class="imgcontainer">
+    <img src="img/register.png" alt="Avatar" class="avatar">
+    <h3 align="center">Registration</h3>
+  </div>
+  <div class="container">
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+     <span id="inuser"></span>
+    <label><b>Area</b></label>
+    <input type="text" placeholder="Enter Area" name="area" required>
+     <span id="inarea"></span>
+    <label><b>District</b></label>
+    <input type="text" placeholder="Enter District" name="district" required>
+     <span id="indistrict"></span>
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+     <span id="inpass"></span>
+    <label><b>Confirm Password</b></label>
+     <span id="inpass1"></span>
+    <input type="password" placeholder="Confirm Password" name="psw1" required>       
+    <button type="submit">Register</button>
+  </div>
+</form>
+
+    </div>
+  </div>
+</div>-->
+</body>
+
+</html>

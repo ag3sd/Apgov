@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Include the jQuery library -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        form {
+            border: 2px solid #f1f1f1;
+            padding: 5%;
+
+        }
+
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+
+        img.avatar {
+            width: 20%;
+            border-radius: 50%;
+            margin-left: 40%;
+            padding-bottom: 5%;
+        }
+
+        .container {
+            padding: 10px;
+
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#bt1").click(function () {
+               alert("dfghjkl");
+               if($("#username").val()=="ravi" && $("#password").val()=="1234")
+               {
+                window.location = "main.html";
+               }
+               else
+               {
+                   alert("Username or password is incorrect");
+               }
+               /* $.post("http://192.168.43.239/apgov/login.php",
+                    {
+                        p1: $("#username").val(),
+                        p2: $("#password").val()
+                    },
+                    function (data, status) {
+                        alert("Data: " + data + "\nStatus: " + status);
+                        var uname = data.trim();
+                        alert(uname);
+                        if (data.trim() == "fail") {
+                            alert("its right");
+                            //window.location="login.html";
+                        }
+                        else {
+                            alert("dfghjkldfghj");
+                         //   localStorage.setItem("farmerid", uname);
+                         //   alert(localStorage.getItem("farmerid"));
+                           window.location = "main.html";
+
+                        }
+                    });*/
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <form>
+
+                    <h3 class="text-center">Login</h3>
+                    <img src="img/login.png" alt="Avatar" class="avatar">
+
+                    <input type="text" placeholder="Enter Username" id="username" name="uname" required>
+
+
+                    <label>
+                        <b>Password</b>
+                    </label>
+                    <input type="password" placeholder="Enter Password" id="password" name=" pass" required>
+
+
+
+                    <button type="button" id="bt1">Login</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!--
+<form method="post">
+  <div class="imgcontainer">
+    <img src="img/login.png" alt="Avatar" class="avatar">
+    <h3 align="center">Login Form</h3>
+
+  </div>
+
+  <div class="container">
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" id="username"  required>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="password" required>
+        
+    <button type="button" id="bt1">Login</button>
+   
+  </div>
+
+ 
+</form>
+-->
+</body>
+
+</html>
